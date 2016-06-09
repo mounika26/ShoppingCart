@@ -10,15 +10,24 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
-<body>
-	<div class="page-header">
-		<h1 align="center">Welcome to ShoppingCart</h1>
-	</div>
-	<nav class="navbar navbar-default">
-		<A class="navbar-brand" href="Login.html">HOME</A> <A
-			class="navbar-brand" href="Index.html">About Us</A> <A
-			class="navbar-brand" href="Index.html">Registration</A> <A
-			class="navbar-brand" href="Index.html">Login</A>
-	</nav>
+<body bgcolor="#aabbcc">
+        <div class="container">
+        <div class="jumbotron">
+		<div class="page-header">
+			<h1 align="center">Welcome to ShoppingCart</h1>
+		</div>
+		<nav class="navbar navbar-default">
+			 <A class="navbar-brand" href="Login.html">HOME</A> 
+			 <A class="navbar-brand" href="Index.html">About Us</A>
+			 <A class="navbar-brand" href="Index.html">Registration</A>
+			 <A class="navbar-brand" href="Index.html">Login</A>
+		</nav>
+		</div>
+		</div>
+		<form action="LoginServlet" method="post">
+		<center> Username:<input type="text" name="uid"> </center> <br>
+		<center> Password:<input type="password" name="pwd"> </center><br>
+		<center><input type="submit" value="submit"></center>
+	    </form>
 </body>
 </html>
