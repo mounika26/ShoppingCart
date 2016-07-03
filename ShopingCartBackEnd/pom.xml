@@ -54,7 +54,7 @@
 			<version>2.0</version>
 		</dependency>
   	
-		<!-- H2 DB Dependency-->
+		<!-- H2 DATABASE -->
 		<dependency>
 	    	<groupId>com.h2database</groupId>
     		<artifactId>h2</artifactId>

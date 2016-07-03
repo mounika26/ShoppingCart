@@ -3,6 +3,7 @@ package com.niit.shopingcart.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,15 +41,37 @@ public class SupplierDAOImpl implements SupplierDAO {
 	}
 
 	@Transactional
-	public void delete(String id) {
+	public String delete(String id) {
 		Supplier supplier = new Supplier();
 		supplier.setId(id);
-		sessionFactory.getCurrentSession().delete(supplier);
+		try {
+			sessionFactory.getCurrentSession().delete(supplier);
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return e.getMessage();
+			
+		}
+		return null;
 	}
 
 	@Transactional
 	public Supplier get(String id) {
-		String hql = "from Supplier where id=" +"'"+ id+"'";
+		String hql = "from Supplier where id=" + "'"+ id+"'";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		
+		@SuppressWarnings("unchecked")
+		List<Supplier> list = (List<Supplier>) query.list();
+		
+		if (list != null && !list.isEmpty()) {
+			return list.get(0);
+		}
+		
+		return null;
+	}
+	
+	@Transactional
+	public Supplier getByName(String name) {
+		String hql = "from Supplier where name=" + "'"+ name+"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		
 		@SuppressWarnings("unchecked")

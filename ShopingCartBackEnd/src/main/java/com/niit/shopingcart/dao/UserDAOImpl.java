@@ -54,7 +54,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Transactional
 	public User get(String id) {
-		String hql = "from User where id=" + "'"+id+"'";
+		String hql = "from User where id=" + "'"+ id+"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		
 		@SuppressWarnings("unchecked")
