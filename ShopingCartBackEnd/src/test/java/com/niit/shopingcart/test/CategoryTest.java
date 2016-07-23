@@ -1,11 +1,13 @@
 package com.niit.shopingcart.test;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.niit.shopingcart.dao.CategoryDAO;
 import com.niit.shopingcart.model.Category;
+import com.niit.shopingcart.model.Product;
 
 public class CategoryTest {
 	
@@ -21,14 +23,6 @@ public class CategoryTest {
 	
 	CategoryDAO categoryDAO = (CategoryDAO)  context.getBean("categoryDAO");
 	
-/*	
-	c.setId("TAB_003");
-	c.setName("Tablet");
-	c.setDescription("Tablet product");
-	
-	
-	categoryDAO.saveOrUpdate(c);
-	*/
 	
 	
 	
@@ -37,6 +31,12 @@ public class CategoryTest {
 	for(Category cat : list)
 	{
 		System.out.println(cat.getId()  + ":" +  cat.getName()  + ":"+  cat.getDescription());
+		Set<Product>  products = cat.getProducts();
+		
+		for(Product p : products)
+		{
+			System.out.println("-> "+p.getId() + ":" +p.getName() +":"+ p.getDescription());
+		}
 	}
 		
 		

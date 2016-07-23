@@ -12,10 +12,32 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserDetails {
 	
+ 
+	@Column (name="admin")
+	private byte admin;
+
+	public byte getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(byte admin) {
+		this.admin = admin;
+	}
+
+	private String password;
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Id
-	@Column(name="id")
+	@Column(name = "id")
 	private String id;
-	
+
 	private String name;
 
 	public String getId() {
@@ -34,35 +56,35 @@ public class UserDetails {
 		this.name = name;
 	}
 
-	public String getMailID() {
-		return mailID;
-	}
-
-	public void setMailID(String mailID) {
-		this.mailID = mailID;
-	}
-
 	public String getAddress() {
 		return address;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public void setAddress(String address) {
 		this.address = address;
 	}
 
-	public String getContactNumber() {
-		return contactNumber;
+	public String getMobile() {
+		return mobile;
 	}
 
-	public void setContactNumber(String contactNumber) {
-		this.contactNumber = contactNumber;
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 
-	@Column(name = "mail_id")
-	private String mailID;
-	
+	@Column(name = "email")
+	private String email;
+
 	private String address;
-	
-	@Column(name = "contact_number")
-	private String contactNumber;
+
+	@Column(name = "mobile")
+	private String mobile;
 }

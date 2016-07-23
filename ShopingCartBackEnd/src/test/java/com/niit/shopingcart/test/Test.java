@@ -21,14 +21,14 @@ public class Test {
 		context.refresh();
 	}
 	
-	public static void createUser(User user)
+	/*public static void createUser(User user)
 	{
 		
 		UserDAO  userDAO =  (UserDAO) context.getBean("userDAO");
 		userDAO.saveOrUpdate(user);
 		
 		
-	}
+	}*/
 	
 	
 
@@ -37,12 +37,12 @@ public class Test {
 		Test t = new Test();
 		
 		User user =(User)  context.getBean("user");
-		user.setId("NIIT");
-		user.setPassword("NIIT");
+		user.setId("admin3");
+		user.setPassword("admin3");
 		user.setAdmin(true);
 		
 		
-		t.createUser(user);
+		//t.createUser(user);
 		
 		
 	}

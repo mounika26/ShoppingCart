@@ -5,14 +5,20 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.shopingcart.model.Category;
 
+
 @Repository("categoryDAO")
 public class CategoryDAOImpl implements CategoryDAO {
+	
+	private static final Logger logger = 
+			LoggerFactory.getLogger(CategoryDAOImpl.class);
 	
 
 	@Autowired
@@ -25,12 +31,13 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	@Transactional
 	public List<Category> list() {
-		
+		logger.debug("calling list");
+		@SuppressWarnings("unchecked")
 		List<Category> listCategory = (List<Category>) 
 		          sessionFactory.getCurrentSession()
 				.createCriteria(Category.class)
 				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
-
+		logger.debug("calling list");
 		return listCategory;
 	}
 
@@ -48,16 +55,17 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	@Transactional
 	public Category get(String id) {
+		logger.debug("calling get");
 		String hql = "from Category where id=" + "'"+ id +"'";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
-		
+		logger.debug("hql:" + hql);
 		@SuppressWarnings("unchecked")
 		List<Category> listCategory = (List<Category>) query.list();
 		
 		if (listCategory != null && !listCategory.isEmpty()) {
 			return listCategory.get(0);
 		}
-		
+		logger.debug("End get");
 		return null;
 	}
 	

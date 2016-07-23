@@ -2,6 +2,10 @@ package com.niit.shopingcart.dao;
 
 import java.util.List;
 
+/**
+ * 
+ */
+
 import com.niit.shopingcart.model.Category;
 
 public interface CategoryDAO {
