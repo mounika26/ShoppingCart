@@ -38,10 +38,10 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(value= "/register/add", method = RequestMethod.POST)
-	public String addCategory(@ModelAttribute("register") UserDetails userdetails){
+	@RequestMapping(value= "/register", method = RequestMethod.POST)
+	public String addCategory(@ModelAttribute("register") UserDetails user){
 		
-			userDAO.saveOrUpdate(userdetails);
+			userDAO.saveOrUpdate(user);
 			
 		
 		return "register";

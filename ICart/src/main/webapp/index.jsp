@@ -79,13 +79,14 @@ padding-left: 60px;
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
         <li><a href="about.jsp">About</a></li>
-        <li><a href="#">Admin</a></li>
         <li><a href="#">User</a></li>
+        <li><a href="about.jsp">Admin</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+        <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
+        <li><a href="views/register.jsp"><span class="glyphicon glyphicon-user"></span> SIGNUP</a></li>
+       <!--  <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li> -->
       </ul>
     </div>
   </div>
